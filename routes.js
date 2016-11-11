@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var Users = require('./controllers/users');
 var Classes = require('./controllers/classes');
 
@@ -26,4 +27,15 @@ module.exports = (app) =>{
         res.send("Money No Change");
       })
 
+=======
+module.exports = function(app){
+app.get('/', function(req,res){
+  console.log("Boop!")
+  res.send("<h1>Yo</h1>");
+})
+  app.post('/attendance', function(req, res){
+    console.log(req);
+    res.send("Money No Change");
+  })
+>>>>>>> f6b751f23433a490efc5a1026099923ad575095d
 }
