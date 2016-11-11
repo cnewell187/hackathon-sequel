@@ -20,7 +20,7 @@ function updateStudent(req, res) {
         if (!userDoc) {
             return res.send('No man its Dave')
         }
-        res.send(userDoc);
+        res.send("Thanks for Logging in to ASS");
     });
 
 }
