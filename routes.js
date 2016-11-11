@@ -1,11 +1,12 @@
-
 var Users = require('./controllers/users');
 var Classes = require('./controllers/classes');
 
-module.exports = (app) =>{
+module.exports = (app) => {
 
-    app.get('/', (req, res)=>{
-        res.sendFile('index.html', {root : './public/html'})
+    app.get('/', (req, res) => {
+        res.sendFile('index.html', {
+            root: './public/html'
+        })
     });
 
     //
@@ -22,20 +23,20 @@ module.exports = (app) =>{
     app.post('/api/classes', Classes.create);
     app.get('/api/classes', Classes.get);
 
-      app.post('/attendance', function(req, res){
+    app.post('/attendance', function(req, res) {
         console.log(req.body);
         res.send("Money No Change");
-      })
+    })
 
 
-module.exports = function(app){
-app.get('/', function(req,res){
-  console.log("Boop!")
-  res.send("<h1>Yo</h1>");
-})
-  app.post('/attendance', function(req, res){
-    console.log(req);
-    res.send("Money No Change");
-  })
+
+    app.get('/', function(req, res) {
+        console.log("Boop!")
+        res.send("<h1>Yo</h1>");
+    })
+    app.post('/attendance', function(req, res) {
+        console.log(req);
+        res.send("Money No Change");
+    })
 
 }
