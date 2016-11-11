@@ -70,7 +70,7 @@ function updateUser(req, res) {
             type: Array,
             default: []
         },
-        channelName: req.
+        channelName: req.body.channel_name
     }
     var newDoc = new User(info);
 
