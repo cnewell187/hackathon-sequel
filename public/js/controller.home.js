@@ -22,31 +22,21 @@ function homeController (usersFactory, classFactory){
     home.newUser = {};
     home.user = {};
     home.userList = [];
-    home.greeting = 'Welcome to the Users of AJAX!';
+    home.greeting = 'Welcome to A.S.S.';
 
     // usersFactory.createUser().then
 
-    classFactory.getClasses()
-        .then(function(returnData){
-            console.log('Classes!', returnData.data)
-            home.classes = returnData.data
-        });
 
-    home.createUser = function(){
-        usersFactory.createUser(home.newUser)
-            .then(function(returnData){
-                console.log('Response from server : ', returnData)
-                home.newUser = {}; // reset the form
-                home.getUser();
-            });
-    }
 
-    home.getUser = function(userID){
-        usersFactory.getUser(userID)
+  
+
+    home.getUser = function(){
+        usersFactory.getUser()
             .then(function(returnData){
                 if(returnData.data.length){
                     // if array (has length), store in userList
                     home.userList = returnData.data;
+                    console.log(returnData.data)
                 }
                 else{
                     // if not, store in user
