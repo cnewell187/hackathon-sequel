@@ -1,27 +1,27 @@
 var User = require('../models/userModel'); //
 
-function create(req, res) {
-    var info = {
-        realName: {
-            type: String,
-            required: true
-        },
-        slackName: req.user_name,
-        timestamps: {
-            type: Array,
-            default: []
-        },
-        channelName: req.
-    }
-    var newDoc = new User(info);
-
-    newDoc.save((err, doc) => {
-        if (err) {
-            return res.send(err);
-        }
-        res.send(doc);
-    });
-}
+// function create(req, res) {
+//     var info = {
+//         realName: {
+//             type: String,
+//             required: true
+//         },
+//         slackName: req.user_name,
+//         timestamps: {
+//             type: Array,
+//             default: []
+//         },
+//         channelName: req.
+//     }
+//     var newDoc = new User(info);
+//
+//     newDoc.save((err, doc) => {
+//         if (err) {
+//             return res.send(err);
+//         }
+//         res.send(doc);
+//     });
+// }
 
 function get(req, res) {
     // get One
