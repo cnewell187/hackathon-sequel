@@ -3,7 +3,7 @@ var User = require('../models/userModel'); //
 
 function updateStudent(req, res) {
     var timesy= Date.now();
-    User.findOne({
+    User.findOneAndUpdate({
         slackName: req.body.user_name
     },{$push:{"timestamps": timesy}} ,{new:true},function(err, userDoc) {
         if (err) {
