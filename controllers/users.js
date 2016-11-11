@@ -5,7 +5,7 @@ function updateStudent(req, res) {
     var timesy= Date.now();
     User.findOne({
         slackName: req.body.user_name
-    },{$push{"timestamps": timesy}} ,{new:true},function(err, userDoc) {
+    },{$push:{"timestamps": timesy}} ,{new:true},function(err, userDoc) {
         if (err) {
             return res.send("Daves not here man");
         }
