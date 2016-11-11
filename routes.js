@@ -39,4 +39,9 @@ module.exports = (app) => {
         res.send("Money No Change");
     })
 
+    app.post('/newStudent', function(req, res) {
+        console.log(req.body);
+        res.send("Congrats You Joined!");
+    })
+
 }

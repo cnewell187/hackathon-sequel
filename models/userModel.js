@@ -1,13 +1,13 @@
 var mongoose = require('mongoose');
 
 var userSchema = mongoose.Schema({
-    name : {type : String, required : true},
+    realName : {type : String, required : true},
+    slackName: {type : String, required : true},
+    timestamps: {type:Array, default: []},
+    channelName: {type: String, required: true}    
 
 
-    class : {
-        type : mongoose.Schema.ObjectId,
-        ref  : 'userClass'
-    }
+
 });
 
 module.exports = mongoose.model('User', userSchema, 'users');
