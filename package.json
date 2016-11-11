@@ -1,0 +1,29 @@
+{
+  "name": "hackathon-sequel",
+  "version": "1.0.0",
+  "description": "An attendance app with Slack integration",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cnewell187/hackathon-sequel.git"
+  },
+  "keywords": [
+    "Attendance"
+  ],
+  "author": "Casey Newell, Luis Marte, Justin Mills, Jeff Swanson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cnewell187/hackathon-sequel/issues"
+  },
+  "homepage": "https://github.com/cnewell187/hackathon-sequel#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.6.7",
+    "morgan": "^1.7.0"
+  }
+}
