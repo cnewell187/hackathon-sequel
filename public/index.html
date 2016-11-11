@@ -4,7 +4,12 @@
 <head>
     <title>Useres of Ajax!</title>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+
+
     <script src="/js/module.tarde.js"></script>
     <script src="/js/controller.home.js"></script>
     <script src="/js/factory.users.js"></script>
@@ -26,8 +31,25 @@
     </nav>
 
 
-    <ng-view>
-    </ng-view>
+    <!-- <ng-view>
+    </ng-view> -->
+
+<h1>Class</h1>
+
+<div ng-repeat="user in home.userList"> </div>
+    <div class="row">
+  <div class="col-sm-6">
+    <div class="card card-block">
+      <h3 class="card-title">Special title treatment</h3>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+
+
+</div>
+
+</div>
+
 
 
     <!-- <form ng-submit="home.createUser()">
