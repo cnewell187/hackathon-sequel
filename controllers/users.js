@@ -3,6 +3,8 @@ var User = require('../models/userModel'); //
 
 function updateStudent(req, res) {
     var timesy= Date.now();
+
+
     User.findOneAndUpdate({
         slackName: req.body.user_name
     },{$push:{"timestamps": timesy}} ,{new:true},function(err, userDoc) {
@@ -18,6 +20,15 @@ function updateStudent(req, res) {
 }
 
 function newStudent(req, res) {
+  // User.findOne({slackName:req.body.user_name}, function(err, doc){
+  //   if(err){
+  //     console.log(err)
+  //     return res.send(err)
+  //   }
+  //   if(!doc){
+  //
+  //   }
+  // })
     console.log(req.body)
     var info = {
         realName: req.body.text,
@@ -35,9 +46,19 @@ function newStudent(req, res) {
     });
 }
 
+function attendanceInfo(req, res){
+  User.
+    find({}).
+    exec(function(data){
+      console.log(data);
+      res.send(data);
+    });
+}
+
 
 module.exports = {
     newStudent: newStudent,
-    updateStudent: updateStudent
+    updateStudent: updateStudent,
+    attendanceInfo: attendanceInfo
 
 }
