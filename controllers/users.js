@@ -1,8 +1,19 @@
 var User = require('../models/userModel'); //
 
 function create(req, res) {
-
-    var newDoc = new User(req.body);
+    var info = {
+        realName: {
+            type: String,
+            required: true
+        },
+        slackName: req.user_name,
+        timestamps: {
+            type: Array,
+            default: []
+        },
+        channelName: req.
+    }
+    var newDoc = new User(info);
 
     newDoc.save((err, doc) => {
         if (err) {
@@ -47,8 +58,49 @@ function get(req, res) {
     }
 }
 
+function updateUser(req, res) {
+
+    var info = {
+        realName: {
+            type: String,
+            required: true
+        },
+        slackName: req.user_name,
+        timestamps: {
+            type: Array,
+            default: []
+        },
+        channelName: req.
+    }
+    var newDoc = new User(info);
+
+    newDoc.save((err, doc) => {
+        if (err) {
+            return res.send(err);
+        }
+        res.send(doc);
+    });
+}
+
+function newStudent(req, res) {
+  console.log(req.body)
+  var info = {
+      realName: req.body.text,
+      slackName: req.body.user_name,
+      timestamps: [],
+      channelName: req.body.channel_name
+  }
+  var newDoc = new User(info);
+
+  newDoc.save((err, doc) => {
+      if (err) {
+          return res.send(err);
+      }
+      res.send(doc);
+  });
+}
+
 
 module.exports = {
-    create: create,
-    get: get,
+    newStudent: newStudent
 }

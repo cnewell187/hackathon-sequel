@@ -6,8 +6,6 @@ var userSchema = mongoose.Schema({
     timestamps: {type:Array, default: []},
     channelName: {type: String, required: true}    
 
-
-
 });
 
 module.exports = mongoose.model('User', userSchema, 'users');
