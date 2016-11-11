@@ -47,7 +47,7 @@ function newStudent(req, res) {
                 if (err) {
                     return res.send(err);
                 }
-                res.send(doc);
+                res.send("Thanks for joining the Overlord Attendance Monitoring System, All your base are belong to us.");
             });
 
         }
