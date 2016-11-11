@@ -47,7 +47,9 @@ function newStudent(req, res) {
 }
 
 function attendanceInfo(req, res){
+  console.log("running attendance Info")
   User.find({}, function(err, data){
+    console.log("the data from att info: ",data)
       res.send(data);
     });
 }
