@@ -50,10 +50,10 @@ function newStudent(req, res) {
                 res.send(doc);
             });
 
-            else {
-                res.send("You have already joined dumb dumb!")
-            }
+        }
 
+        else {
+            res.send("You have already joined dumb dumb!")
         }
     })
 }
