@@ -64,7 +64,7 @@ function attendanceInfo(req, res) {
             console.log("the time index: ", timeIndex)
             var timeDiff = presentTime -data[i].timestamps[timeIndex];
             console.log("The time diff is ", timeDiff)
-            if(timeDiff>43){
+            if(timeDiff>43 || timeDiff ===NaN){
               present = false;
             }
             else{
