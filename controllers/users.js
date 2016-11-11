@@ -70,7 +70,7 @@ function attendanceInfo(req, res) {
             console.log("the time index: ", timeIndex)
             var timeDiff = presentTime - data[i].timestamps[timeIndex];
             console.log("The time diff is ", timeDiff)
-            if (timeDiff > 60000) {
+            if (timeDiff > 30000) {
                 present = false;
             } else {
                 present = true;
