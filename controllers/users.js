@@ -1,4 +1,4 @@
-var User = require('../models/usersModel'); //
+var User = require('../models/userModel'); //
 
 function create(req, res) {
 
