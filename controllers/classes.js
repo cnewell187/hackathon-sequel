@@ -13,7 +13,7 @@ module.exports = {
     },
     get : (req, res) =>{
 
-        HQ.find({}, (err, docs)=>{
+        Class.find({}, (err, docs)=>{
             if(err){
                 return res.send(err);
             }

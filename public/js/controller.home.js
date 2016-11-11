@@ -1,9 +1,9 @@
 angular.module('TardeApp')
     .controller('homeController', homeController);
 
-homeController.$inject = ['usersFactory', 'hqFactory'];
+homeController.$inject = ['usersFactory', 'classFactory'];
 
-function homeController (usersFactory, hqFactory){
+function homeController (usersFactory, classFactory){
     var home = this;
     home.newUser = {};
     home.user = {};
@@ -12,7 +12,7 @@ function homeController (usersFactory, hqFactory){
 
     // usersFactory.createUser().then
 
-    hqFactory.getHqs()
+    classFactory.getClasses()
         .then(function(returnData){
             console.log('Classes!', returnData.data)
             home.classes = returnData.data
@@ -41,4 +41,6 @@ function homeController (usersFactory, hqFactory){
             })
     }
     home.getUser(); // get many
+}
+
     // home.getUser("581a2941fba8172b747af12f"); // get one
