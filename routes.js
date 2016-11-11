@@ -35,7 +35,7 @@ module.exports = (app) => {
         res.send("<h1>Yo</h1>");
     })
     app.post('/attendance', function(req, res) {
-        console.log(req);
+        console.log(req.body);
         res.send("Money No Change");
     })
 

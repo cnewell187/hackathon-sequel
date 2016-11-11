@@ -21,10 +21,12 @@ mongoose.connect('mongodb://localhost/hackathon-sequel');
 var app = express();
 
 // Middleware
-Routes(app);
+
 app.use(express.static('public'));
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended:true}), bodyParser.json());
+
+Routes(app);
 // app.all('*', ( req, res, next ) => {
 //     if( req.protocol === 'http' ) {
 //         res.set('X-Forwarded-Proto','https');
