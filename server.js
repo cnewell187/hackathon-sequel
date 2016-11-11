@@ -6,6 +6,7 @@ var express = require('express'),
     Routes = require('./routes'),
     HTTP = require('http'),
     HTTPS = require('https'),
+    fs = require('fs'),
     ports = {
         http:  process.env.PORT || 80,      // default HTTP port
         https: process.env.PORT_SSL || 443  // defualt HTTPS port
@@ -23,6 +24,14 @@ var app = express();
 app.use(express.static('public'));
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended:true}), bodyParser.json());
+// app.all('*', ( req, res, next ) => {
+//     if( req.protocol === 'http' ) {
+//         res.set('X-Forwarded-Proto','https');
+//         res.redirect('https://'+ req.headers.host + req.url);
+//     } else {
+//         next();
+//     }
+// });
 
 
 
