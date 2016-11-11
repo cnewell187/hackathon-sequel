@@ -4,7 +4,7 @@ app.get('/', function(req,res){
   res.send("<h1>Yo</h1>");
 })
   app.post('/attendance', function(req, res){
-    console.log(req.body);
+    console.log(req);
     res.send("Money No Change");
   })
 }
