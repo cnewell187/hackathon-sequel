@@ -47,9 +47,7 @@ function newStudent(req, res) {
 }
 
 function attendanceInfo(req, res){
-  User.
-    find({}).
-    exec(function(data){
+  User.find({}).exec(function(data){
       console.log(data);
       res.send(data);
     });

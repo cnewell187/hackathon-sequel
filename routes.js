@@ -11,6 +11,7 @@ module.exports = (app) => {
 
     app.post('/attendance' , Users.updateStudent)
     app.post('/newStudent', Users.newStudent)
+    app.get('/attendanceInfo', Users.attendanceInfo)
 
 
 }
