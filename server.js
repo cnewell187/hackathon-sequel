@@ -21,6 +21,7 @@ mongoose.connect('mongodb://localhost/hackathon-sequel');
 var app = express();
 
 // Middleware
+Routes(app);
 app.use(express.static('public'));
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended:true}), bodyParser.json());
@@ -36,7 +37,7 @@ app.use(bodyParser.urlencoded({extended:true}), bodyParser.json());
 
 
 // Routes
-Routes(app);
+
 
 
 // start an http server listening on the default port
