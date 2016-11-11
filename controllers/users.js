@@ -26,30 +26,36 @@ function updateStudent(req, res) {
 }
 
 function newStudent(req, res) {
-    // User.findOne({slackName:req.body.user_name}, function(err, doc){
-    //   if(err){
-    //     console.log(err)
-    //     return res.send(err)
-    //   }
-    //   if(!doc){
-    //
-    //   }
-    // })
-    console.log(req.body)
-    var info = {
-        realName: req.body.text,
-        slackName: req.body.user_name,
-        timestamps: [],
-        channelName: req.body.channel_name
-    }
-    var newDoc = new User(info);
-
-    newDoc.save((err, doc) => {
+    User.findOne({
+        slackName: req.body.user_name
+    }, function(err, doc) {
         if (err) {
-            return res.send(err);
+            console.log(err)
+            return res.send(err)
         }
-        res.send(doc);
-    });
+        if (!doc) {
+
+            var info = {
+                realName: req.body.text,
+                slackName: req.body.user_name,
+                timestamps: [],
+                channelName: req.body.channel_name
+            }
+            var newDoc = new User(info);
+
+            newDoc.save((err, doc) => {
+                if (err) {
+                    return res.send(err);
+                }
+                res.send(doc);
+            });
+
+            else {
+                res.send("You have already joined dumb dumb!")
+            }
+
+        }
+    })
 }
 
 function attendanceInfo(req, res) {
@@ -60,15 +66,14 @@ function attendanceInfo(req, res) {
         for (var i = 0; i < data.length; i++) {
             var present = false;
             var presentTime = Date.now();
-            var timeIndex = data[i].timestamps.length-1
+            var timeIndex = data[i].timestamps.length - 1
             console.log("the time index: ", timeIndex)
-            var timeDiff = presentTime -data[i].timestamps[timeIndex];
+            var timeDiff = presentTime - data[i].timestamps[timeIndex];
             console.log("The time diff is ", timeDiff)
-            if(timeDiff>43200000){
-              present = false;
-            }
-            else{
-              present = true;
+            if (timeDiff > 43200000) {
+                present = false;
+            } else {
+                present = true;
             }
 
 
@@ -82,7 +87,7 @@ function attendanceInfo(req, res) {
 
 
         }
-          res.send(dataToPass);
+        res.send(dataToPass);
     });
 }
 
