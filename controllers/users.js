@@ -7,7 +7,7 @@ function updateStudent(req, res) {
         slackName: req.body.user_name
     },{$push:{"timestamps": timesy}} ,{new:true},function(err, userDoc) {
         if (err) {
-            return res.send("Daves not here man");
+            return res.send(err);
         }
         if (!userDoc) {
             return res.send('No man its Dave')
