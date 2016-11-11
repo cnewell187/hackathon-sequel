@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="Useres">
+    <head>
+        <title>Useres of Ajax!</title>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="/js/module.tarde.js"></script>
+        <script src="/js/controller.home.js"></script>
+        <script src="/js/factory.users.js"></script>
+        <script src="/js/factory.classes.js"></script>
+
+
+    </head>
+    <body ng-controller="homeController as home">
+            <h1>{{home.greeting}}</h1>
+
+            <form ng-submit="home.createUser()">
+                <input class="form-control" ng-model="home.newUser.name" placeholder="Name">
+
+                <!-- VALUE as DISPLAY for ITEM in LIST -->
+                <select
+                ng-model="home.newUser.class"
+                ng-options="class._id as class.name for class in home.class"
+                class="form-control">
+                    <option value="" selected disabled>Pick One, Son</option>
+                </select>
+
+                <input type="submit">
+            </form>
+
+        <ul>
+            <li ng-repeat="user in home.userList">
+                {{user.name}}
+            </li>
+
+        </ul>
+
+        {{home.user.name}}
+
+    </body>
+</html>

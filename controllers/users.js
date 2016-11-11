@@ -36,29 +36,15 @@ function get (req, res) {
             // .sort()
             // .limit()
             .populate('headquarter')
-            // Mongoose method chains MUST end with exec - its where you put your callback
             .exec((err, documents)=>{
-                // res.send(err || documents)
                 if(err){
                     return res.send(err);
                 }
                 res.send(documents);
             })
 
-        // headquarter : 38923891982389123
-        // headquarter : {
-        //     name : 'batcave'...
-        // }
-    }
-}
 
 module.exports = {
     create : create,
     get    : get,
 }
-
-// module.exports = {
-//     create : (req, res) =>{
-
-//     },
-// }
