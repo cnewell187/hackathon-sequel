@@ -21,7 +21,9 @@ module.exports = (app) =>{
     app.post('/api/classes', Classes.create);
     app.get('/api/classes', Classes.get);
 
-
-
+      app.post('/attendance', function(req, res){
+        console.log(req.body);
+        res.send("Money No Change");
+      })
 
 }
