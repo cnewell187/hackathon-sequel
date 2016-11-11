@@ -29,6 +29,14 @@ app.use(bodyParser.urlencoded({extended:true}), bodyParser.json());
 // Routes
 Routes(app);
 
-app.listen(3000, ()=>{
-    console.log('Server is running!')
-});
+
+// start an http server listening on the default port
+HTTP.createServer( app ).listen( ports.http );
+
+// start an https server listening on the default port
+// we use try/catch in case the https configuration fails
+try {
+    HTTPS.createServer( httpsConfig, app ).listen( ports.https );
+} catch (e) {
+    console.error('Could not HTTPS server:', e);
+}
