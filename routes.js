@@ -38,10 +38,10 @@ module.exports = (app) => {
         console.log(req.body);
         res.send("Money No Change");
     })
-    app.post('/newStudent' Users.newStudent)
-    app.post('/newStudent', function(req, res) {
-        console.log(req.body);
-        res.send("Congrats You Joined!");
-    })
+    app.post('/newStudent', Users.newStudent)
+    // app.post('/newStudent', function(req, res) {
+    //     console.log(req.body);
+    //     res.send("Congrats You Joined!");
+    // })
 
 }
