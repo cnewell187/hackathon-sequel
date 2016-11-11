@@ -27,7 +27,7 @@ module.exports = (app) =>{
         res.send("Money No Change");
       })
 
-=======
+
 module.exports = function(app){
 app.get('/', function(req,res){
   console.log("Boop!")
@@ -37,5 +37,5 @@ app.get('/', function(req,res){
     console.log(req);
     res.send("Money No Change");
   })
->>>>>>> f6b751f23433a490efc5a1026099923ad575095d
+
 }
