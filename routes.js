@@ -1,7 +1,7 @@
 module.exports = function(app){
 app.get('/', function(req,res){
   console.log("Boop!")
-  res.send("Yo");
+  res.send("<h1>Yo</h1>");
 })
   app.post('/attendance', function(req, res){
     console.log(req.body);
