@@ -1,0 +1,68 @@
+.cover-container {
+  height: 800px;
+}
+
+#cover-page {
+  background-image: url('../images/winter-road.jpeg');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+  left: 0;
+  transition: all 3000 ease-in-out;
+}
+
+/*-----------------Logo----------------------*/
+
+#logo {
+  height: 50px;
+  width: 50px;
+  margin-top: 10px;
+  margin-left: 20px;
+  z-index: -10;
+}
+
+/*----------- Menu Attributes ---------------*/
+.right {
+  text-align: right;
+}
+
+.btn {
+  background-color: rgba(0, 0, 0, 0);
+  box-shadow: none;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+    box-shadow: none;
+    background-color: rgba (0, 0, 0, 0);
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: rgba(0, 0, 0, 0);
+    box-shadow: none;
+    z-index: 2;
+}
+.btn-primary:active, .btn-primary.active {
+    background: rgba (0, 0, 0, 0);
+    box-shadow: none;
+}
+
+.dropdown-menu {
+  background-color: rgba(0, 0, 0, 0);
+  outline: 0 none;
+  box-shadow: none;
+}
+
+.dropdown-menu:hover {
+  background-color: rgba(0, 0, 0, 0);
+  outline: 0 none;
+  box-shadow: none;
+}
+
+/*----------------------------------------*/
