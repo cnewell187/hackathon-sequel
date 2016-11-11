@@ -1,1 +1,1 @@
-angular.module('TardeApp', []);
+angular.module('TardeApp', ['ngRoute']);

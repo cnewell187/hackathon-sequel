@@ -1,5 +1,19 @@
 angular.module('TardeApp')
     .controller('homeController', homeController);
+angular.module('TardeApp')
+    .config(router);
+
+
+router.$inject = ["$routeProvider"];
+
+function router ($routeProvider){
+    .when('/home', {
+        templateUrl : '../public/templates/home.html'
+    }),
+    .when('/users', {
+        templateUrl : '../public/templates/users.html'
+    })
+};
 
 homeController.$inject = ['usersFactory', 'classFactory'];
 
