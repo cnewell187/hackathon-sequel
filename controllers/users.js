@@ -1,28 +1,5 @@
 var User = require('../models/userModel'); //
 
-function create(req, res) {
-    var info = {
-        realName: {
-            type: String,
-            required: true
-        },
-        slackName: req.user_name,
-        timestamps: {
-            type: Array,
-            default: []
-        },
-        channelName: req.body
-    }
-    var newDoc = new User(info);
-
-    newDoc.save((err, doc) => {
-        if (err) {
-            return res.send(err);
-        }
-        res.send(doc);
-    });
-}
-
 function get(req, res) {
     // get One
     if (req.params.id) {
@@ -58,28 +35,19 @@ function get(req, res) {
     }
 }
 
-function updateUser(req, res) {
+function updateStudent(req, res) {
 
-    var info = {
-        realName: {
-            type: String,
-            required: true
-        },
-        slackName: req.user_name,
-        timestamps: {
-            type: Array,
-            default: []
-        },
-        channelName: req.body.channel_name
-    }
-    var newDoc = new User(info);
+   User.findOne({slackName: req.body.user_name}, function(err, userDoc) {
+       if (err) {
+          return res.send("Daves not here man");
+       }
+       if (!userDoc) {
+           return res.send('No man its Dave')
+       }
+       res.send(userDoc);
+   });)
 
-    newDoc.save((err, doc) => {
-        if (err) {
-            return res.send(err);
-        }
-        res.send(doc);
-    });
+
 }
 
 function newStudent(req, res) {
@@ -103,6 +71,6 @@ function newStudent(req, res) {
 
 module.exports = {
     newStudent: newStudent,
-    create: create,
-    get: get
+    updateStudent: updateStudent
+
 }
