@@ -2,12 +2,18 @@ var User = require('../models/userModel'); //
 
 
 function updateStudent(req, res) {
-    var timesy= Date.now();
+    var timesy = Date.now();
 
 
     User.findOneAndUpdate({
         slackName: req.body.user_name
-    },{$push:{"timestamps": timesy}} ,{new:true},function(err, userDoc) {
+    }, {
+        $push: {
+            "timestamps": timesy
+        }
+    }, {
+        new: true
+    }, function(err, userDoc) {
         if (err) {
             return res.send(err);
         }
@@ -20,15 +26,15 @@ function updateStudent(req, res) {
 }
 
 function newStudent(req, res) {
-  // User.findOne({slackName:req.body.user_name}, function(err, doc){
-  //   if(err){
-  //     console.log(err)
-  //     return res.send(err)
-  //   }
-  //   if(!doc){
-  //
-  //   }
-  // })
+    // User.findOne({slackName:req.body.user_name}, function(err, doc){
+    //   if(err){
+    //     console.log(err)
+    //     return res.send(err)
+    //   }
+    //   if(!doc){
+    //
+    //   }
+    // })
     console.log(req.body)
     var info = {
         realName: req.body.text,
@@ -46,11 +52,36 @@ function newStudent(req, res) {
     });
 }
 
-function attendanceInfo(req, res){
-  console.log("running attendance Info")
-  User.find({}, function(err, data){
-    console.log("the data from att info: ",data)
-      res.send(data);
+function attendanceInfo(req, res) {
+    console.log("running attendance Info")
+    User.find({}, function(err, data) {
+        console.log("the data from att info: ", data)
+        var dataToPass = []
+        for (var i = 0; i < data.length; i++) {
+            var present = false;
+            var presentTime = Date.now();
+            var timeIndex = data[i].timestamps.length-1
+            console.log("the time index: ", timeIndex)
+            var timeDiff = presentTime -data[i].timestamps[timeIndex];
+            if(timeDiff>43200000){
+              present = false;
+            }
+            else{
+              present = true;
+            }
+
+
+            var userDataToPass = {
+                realName: data[i].realName,
+                slackName: data[i].slackName,
+                channelName: data[i].channelName,
+                here: present
+            }
+            dataToPass.push(userDataToPass);
+
+
+        }
+          res.send(dataToPass);
     });
 }
 
