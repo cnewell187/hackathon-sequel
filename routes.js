@@ -1,5 +1,5 @@
 var Users = require('./controllers/users');
-var Classes = require('./controllers/classes');
+
 
 module.exports = (app) => {
 
