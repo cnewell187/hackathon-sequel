@@ -10,11 +10,13 @@ module.exports = (app) => {
     });
 
 
-    app.post('/attendance', function(req, res) {
-        console.log(req.body);
-        res.send("Money No Change");
-    })  
+    // app.post('/attendance', function(req, res) {
+    //     console.log(req.body);
+    //     res.send("Money No Change");
+    // })
 
+
+    app.post('/attendance' , Users.updateStudent)
     app.post('/newStudent', Users.newStudent)
 
 
